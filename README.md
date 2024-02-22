@@ -5,4 +5,4 @@
 - Taz Campbell
 - Jason Kulak
 - Christian Alexander
-- Haley Zitsmann 
+- Haley Zitzmann 
