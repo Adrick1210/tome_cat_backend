@@ -1,10 +1,11 @@
-//Dependencies
+// Import Dependencies
 const express = require('express')
 const Books = require('../models/books')
 
+//Create the Router
 const router = express.Router()
 
-
+//Index Route
 router.get('/', async (req, res) => {
     try{
         res.json(await Books.find({}))
@@ -13,7 +14,7 @@ router.get('/', async (req, res) => {
     }
 })
 
-
+//Create Route
 router.post ('/', async (req, res) => {
     try{
         res.json(await Books.create(req.body))
@@ -31,6 +32,7 @@ router.delete('/:id', async (req, res) => {
     }
 })
 
+//Show Route
 router.get('/:id', async (req, res) => {
     try{
         res.json(await Books.findById(req.params.id))
@@ -39,7 +41,7 @@ router.get('/:id', async (req, res) => {
     }
 })
 
-
+//Update Route
 router.put('/:id', async (req, res) => {
     try{
         res.json(await Books.findByIdAndUpdate(req.params.id, req.body))
@@ -49,5 +51,5 @@ router.put('/:id', async (req, res) => {
 })
 
 
-
+//Export the Router
 module.exports = router
