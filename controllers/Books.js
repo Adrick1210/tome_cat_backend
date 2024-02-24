@@ -17,9 +17,10 @@ router.get('/', async (req, res) => {
 //Create Route
 router.post ('/', async (req, res) => {
     try{
-        res.json(await Books.create(req.body))
-
+        
         req.body.read = req.body.read === "on" ? true : false;
+        
+        res.json(await Books.create(req.body))
 
     } catch (err) {
         res.status(400).json(err)
@@ -46,11 +47,11 @@ router.get('/:id', async (req, res) => {
 
 //Update Route
 router.put('/:id', async (req, res) => {
-    try{            
+    try{  
+        
+        req.body.read = req.body.read === "on" ? true : false;
 
         res.json(await Books.findByIdAndUpdate(req.params.id, req.body))
-
-        req.body.read = req.body.read === "on" ? true : false;
 
     } catch (err) {
         res.status(400).json(err)
