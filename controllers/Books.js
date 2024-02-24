@@ -18,6 +18,9 @@ router.get('/', async (req, res) => {
 router.post ('/', async (req, res) => {
     try{
         res.json(await Books.create(req.body))
+
+        req.body.read = req.body.read === "on" ? true : false;
+
     } catch (err) {
         res.status(400).json(err)
     }
