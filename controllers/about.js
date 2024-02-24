@@ -1,18 +1,14 @@
 //import dependencies
-const express = require('express')
-const Creators = require('../models/Creators')
+const express = require("express");
+const about = require("../models/about.json");
 
 //create the router
-const router = express.Router()
+const router = express.Router();
 
 //Index route
-router.get('/about', async (req, res) => {
-    try {
-        res.json(await Creators.find( {} ))
-    } catch (err) {
-        res.status(400).json(err)
-    }
-})
+router.get("/", (req, res) => {
+  res.json(about);
+});
 
 //export the router
-module.exports = router
+module.exports = router;
