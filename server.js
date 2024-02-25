@@ -6,6 +6,7 @@ const morgan = require("morgan");
 const PORT = process.env.PORT;
 const BooksRouter = require("./controllers/Books");
 const AboutRouter = require("./controllers/about");
+const CatApiRouter = require("./controllers/catImage")
 
 // APP OBJECT
 const app = express();
@@ -18,6 +19,7 @@ app.use(express.json());
 // ROUTERS
 app.use("/books", BooksRouter);
 app.use("/about", AboutRouter);
+app.use("/api", CatApiRouter)
 
 // TEST ROUTE
 app.get("/", (req, res) => {
