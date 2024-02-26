@@ -19,6 +19,9 @@ router.get('/catapi', async (req, res) => {
         //pull image url from the response
         const data = await response.json()
         const catImageUrl = data[0].url
+
+        //ensuring that the backend is sending json, currently frontend pulls as html/txt
+        res.setHeader('Content-Type', 'application/json')
         //return the image URL to the frontend
         res.json({ catImageUrl })
         console.log( catImageUrl )
